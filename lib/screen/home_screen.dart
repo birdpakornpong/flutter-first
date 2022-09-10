@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../home_screen_roter.dart';
+import './login_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -11,18 +13,8 @@ const kTextStyle =
 class _HomeScreenState extends State<HomeScreen> {
   int _itemIndex = 0;
   List<Widget> widgetList = [
-    Center(
-      child: Text(
-        'โฮม',
-        style: kTextStyle,
-      ),
-    ),
-    Center(
-      child: Text(
-        'กราฟ',
-        style: kTextStyle,
-      ),
-    ),
+    LoginScreen(),
+    HomeScreenRouter(),
     Center(
       child: Text(
         'ค้นหา',
@@ -39,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Home Screen')),
+      // appBar: AppBar(title: Text('Home Screen')),
       body: widgetList.elementAt(_itemIndex),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,

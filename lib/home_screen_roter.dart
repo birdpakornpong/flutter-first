@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import './form_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreenRouter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
