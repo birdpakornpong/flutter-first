@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../home_screen_roter.dart';
 import './login_screen.dart';
+import './list_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -15,12 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> widgetList = [
     LoginScreen(),
     HomeScreenRouter(),
-    Center(
-      child: Text(
-        'ค้นหา',
-        style: kTextStyle,
-      ),
-    ),
+    ListScreen(),
     Center(
       child: Text(
         'เกี่ยวกับ',
