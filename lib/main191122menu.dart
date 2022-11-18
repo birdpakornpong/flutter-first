@@ -32,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
   // กลุ่มข้อมูล
   List<FoodMenu> menu = [
     FoodMenu(name: "กุ้งเผา", price: "300", img: 'assets/images/birth.jpg'),
-    FoodMenu(name: "กระเพราหมู", price: "500"),
+    FoodMenu(name: "กระเพราหมู", price: "500", img: 'assets/images/pown.jpeg'),
   ];
 
   @override

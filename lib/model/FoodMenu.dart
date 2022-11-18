@@ -8,7 +8,7 @@ class FoodMenu {
   FoodMenu({
     required this.name,
     required this.price,
-    this.img = "",
+    this.img = "assets/images/birth.jpg",
   });
 
   FoodMenu copyWith({
