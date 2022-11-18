@@ -1,6 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
+import './model/FoodMenu.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,50 +27,31 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  int number = 0; // create State
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+  // กลุ่มข้อมูล
+  List<FoodMenu> menu = [
+    FoodMenu(name: "กุ้งเผา", price: "300"),
+    FoodMenu(name: "กระเพราหมู", price: "500"),
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Navigator',
-        theme: ThemeData(
-          primarySwatch: Colors.pink,
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text("เลือกเมนูอาหาร"),
         ),
-        home: Scaffold(
-          appBar: AppBar(
-            title: const Text("Bird Flutter"),
-          ),
-          body: Center(
-            child: Column(
-                // กำหนด position children in column
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  Text(
-                    '$_counter',
-                  ),
-                  const Text(
-                    'Hello bird',
-                  ),
-                  const Image(
-                      image: NetworkImage(
-                          "https://cdn.pixabay.com/photo/2022/10/21/08/39/cat-7536508_1280.jpg")),
-                  const Image(
-                    image: NetworkImage(
-                        "https://cdn.pixabay.com/photo/2022/11/02/04/07/deer-7563934_1280.jpg"),
-                  )
-                ]),
-          ),
-          floatingActionButton: FloatingActionButton(
-            onPressed: _incrementCounter,
-            tooltip: 'Increment',
-            child: const Icon(Icons.add),
-          ),
-        ));
+        body: ListView.builder(
+            itemCount: menu.length,
+            itemBuilder: (BuildContext context, int index) {
+              FoodMenu food = menu[index];
+              return ListTile(
+                title: Text(
+                  food.name,
+                  style: const TextStyle(fontSize: 30),
+                ),
+                subtitle: Text('ราคา ' + food.price + ' บาท'),
+              );
+            }));
   }
 }
