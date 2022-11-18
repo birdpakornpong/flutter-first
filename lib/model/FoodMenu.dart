@@ -4,18 +4,22 @@ import 'dart:convert';
 class FoodMenu {
   String name;
   String price;
+  String img;
   FoodMenu({
     required this.name,
     required this.price,
+    this.img = "",
   });
 
   FoodMenu copyWith({
     String? name,
     String? price,
+    String? img,
   }) {
     return FoodMenu(
       name: name ?? this.name,
       price: price ?? this.price,
+      img: img ?? this.img,
     );
   }
 
@@ -23,6 +27,7 @@ class FoodMenu {
     return <String, dynamic>{
       'name': name,
       'price': price,
+      'img': img,
     };
   }
 
@@ -30,6 +35,7 @@ class FoodMenu {
     return FoodMenu(
       name: map['name'] as String,
       price: map['price'] as String,
+      img: map['img'] as String,
     );
   }
 
@@ -39,15 +45,15 @@ class FoodMenu {
       FoodMenu.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
-  String toString() => 'FoodMenu(name: $name, price: $price)';
+  String toString() => 'FoodMenu(name: $name, price: $price, img: $img)';
 
   @override
   bool operator ==(covariant FoodMenu other) {
     if (identical(this, other)) return true;
 
-    return other.name == name && other.price == price;
+    return other.name == name && other.price == price && other.img == img;
   }
 
   @override
-  int get hashCode => name.hashCode ^ price.hashCode;
+  int get hashCode => name.hashCode ^ price.hashCode ^ img.hashCode;
 }

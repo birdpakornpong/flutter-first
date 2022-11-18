@@ -31,8 +31,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   // กลุ่มข้อมูล
   List<FoodMenu> menu = [
-    FoodMenu(name: "กุ้งเผา", price: "300"),
-    FoodMenu(name: "กระเพราหมู", price: "500"),
+    FoodMenu(name: "กุ้งเผา", price: "300", img: 'assets/images/birth.jpg'),
+    FoodMenu(name: "กระเพราหมู", price: "500", img: 'assets/images/pown.jpeg'),
   ];
 
   @override
@@ -46,11 +46,15 @@ class _MyHomePageState extends State<MyHomePage> {
             itemBuilder: (BuildContext context, int index) {
               FoodMenu food = menu[index];
               return ListTile(
+                leading: Image.asset(food.img),
                 title: Text(
                   food.name,
                   style: const TextStyle(fontSize: 30),
                 ),
                 subtitle: Text('ราคา ' + food.price + ' บาท'),
+                onTap: () {
+                  print("คุณเลือกอาหารชื่อว่า =" + food.name);
+                },
               );
             }));
   }
