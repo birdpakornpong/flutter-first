@@ -1,23 +1,47 @@
-void main() async {
-  print("กำลังทำงาน รอ 10 วิ");
-  print(await loginUserFuture());
-  print("ทำงานต่อไป");
+// ignore_for_file: library_private_types_in_public_api
+
+import 'package:flutter/material.dart';
+import 'package:http/http.dart';
+
+void main() {
+  runApp(const MyApp());
 }
 
-String loginUser() {
-  var user = getUserFromDatabase();
-  return user;
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        title: 'Navigator',
+        theme: ThemeData(
+          primarySwatch: Colors.pink,
+        ),
+        home: const MyHomePage());
+  }
 }
 
-String getUserFromDatabase() {
-  return "kongruksiam";
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
 }
 
-Future<String> loginUserFuture() async {
-  var user = await getUserFromDatabaseFuture();
-  return user;
-}
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  void initState() {
+    super.initState();
+    print('เรียกใช้งาน init State');
+  }
 
-Future<String> getUserFromDatabaseFuture() {
-  return Future.delayed(const Duration(seconds: 10), () => "bird pakornpong");
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text("อัตราการแลกเปลี่ยน"),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(children: []),
+        ));
+  }
 }

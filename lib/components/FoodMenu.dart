@@ -14,7 +14,7 @@ class MoneyBox extends StatelessWidget {
     return Container(
       child: Row(
         children: [
-          Text(title),
+          Text(title ??= "bird pakornpong"), // ถ้าtitle == null show defalut
           Expanded(child: Text('${NumberFormat("#,###").format(55000)}'))
         ],
       ),
