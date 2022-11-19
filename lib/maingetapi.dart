@@ -62,10 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Column(children: const [
-            LinearProgressIndicator(), // loading
-            Text("ข้อมูล")
-          ]),
+          child: Column(children: []),
         ));
   }
 }
