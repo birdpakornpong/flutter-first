@@ -1,7 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
-import './model/FoodMenu.dart';
+import './components/FoodMenu.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,35 +27,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int number = 0; // create State
-
-  // กลุ่มข้อมูล
-  List<FoodMenu> menu = [
-    FoodMenu(name: "กุ้งเผา", price: "300", img: 'assets/images/birth.jpg'),
-    FoodMenu(name: "กระเพราหมู", price: "500"),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("เลือกเมนูอาหาร"),
+          title: const Text("บัญชีของฉัน"),
         ),
-        body: ListView.builder(
-            itemCount: menu.length,
-            itemBuilder: (BuildContext context, int index) {
-              FoodMenu food = menu[index];
-              return ListTile(
-                leading: Image.asset(food.img),
-                title: Text(
-                  food.name,
-                  style: const TextStyle(fontSize: 30),
-                ),
-                subtitle: Text('ราคา ' + food.price + ' บาท'),
-                onTap: () {
-                  print("คุณเลือกอาหารชื่อว่า =" + food.name);
-                },
-              );
-            }));
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(children: [
+            MoneyBox("ยอดคงเหลือ", 120000, Colors.lightBlue, 120)
+          ]),
+        ));
   }
 }
