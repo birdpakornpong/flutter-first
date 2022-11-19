@@ -15,7 +15,7 @@ class MoneyBox extends StatelessWidget {
       child: Row(
         children: [
           Text(title),
-          Expanded(child: Text('${NumberFormat("#,###").format("55000")}'))
+          Expanded(child: Text('${NumberFormat("#,###").format(55000)}'))
         ],
       ),
     );

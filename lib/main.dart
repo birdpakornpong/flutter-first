@@ -36,7 +36,12 @@ class _MyHomePageState extends State<MyHomePage> {
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(children: [
-            MoneyBox("ยอดคงเหลือ", 120000, Colors.lightBlue, 120)
+            MoneyBox("ยอดคงเหลือ", 120000, Colors.lightBlue, 120),
+            const SizedBox(
+              height: 5,
+            ),
+            MoneyBox("ยอดคงเหลือ", 120000, Colors.lightBlue, 120),
+            MoneyBox("ยอดคงเหลือ", 120000, Colors.lightBlue, 120),
           ]),
         ));
   }
